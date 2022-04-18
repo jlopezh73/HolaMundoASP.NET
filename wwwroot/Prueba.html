@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Primera página HTML</title>
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+        <style>
+            
+
+            .text_centrado {
+                text-align: center;
+            }
+
+            .td_titulo {font-size:22pt; 
+                color: brown;
+                width: 200px;
+                border-bottom: 1px solid #000;
+                background-color: lightgray;
+                text-align: center;
+            }
+
+            input, button {
+                font-size: 13pt;
+            }
+
+            #spromedio {
+                color: greenyellow
+            }
+
+            .site-header {
+                background-color: rgba(0, 0, 0, .85);
+                -webkit-backdrop-filter: saturate(180%) blur(20px);
+                backdrop-filter: saturate(180%) blur(20px);
+                }
+                .site-header a {
+                color: #8e8e8e;
+                transition: color .15s ease-in-out;
+                }
+                .site-header a:hover {
+                color: #fff;
+                text-decoration: none;
+                }
+        </style>
+    </head>
+    <body>
+        <header class="site-header sticky-top py-1">
+            <nav class="container d-flex flex-column flex-md-row justify-content-between">
+              <a class="py-2" href="#" aria-label="Product">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+              </a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+              <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+            </nav>
+        </header>
+
+        <div class="text-center py-5 px-5 my-5 mx-5" style="border:1px solid black">
+            <h1 class="fw-bold">Bienvenido a la página del curso de Desarrollo de Aplicaciones</h1>
+            <h2 class="fw-bold">Lista de calificaciones</h2>
+            <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        </div>
+        
+        <div class="py-5 px-5 my-5">
+            <table  class="table  table-bordered table-hover table-striped tabled-responsive" id="tablaAlumnos">
+                <thead>
+                    <tr>
+                        <td><strong>Foto</strong></td>
+                        <td><strong>Matrícula</strong></td>
+                        <td><strong>Nombre</strong></td>
+                        <td><strong>Sexo</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align: right;"><strong>Promedio:</strong></td>
+                        <td style="text-align:center"><span id="spromedio" ></span></td>
+                    </tr>
+                </tfoot>         
+            </table>   
+            
+            <div class="my-3">
+                <button class="btn btn-warning" onclick="calcularPromedio();">Calcular Promedio</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dialogoAgregar">Agregar nuevo alumno</button>
+                <!--<button class="btn btn-success" type="button" onclick="$('#dialogoAgregar').modal('show');">Agregar nuevo alumno</button> -->
+            </div>
+            
+            
+            <div class="modal fade" tabindex="-1" id="dialogoAgregar">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Agregar Alumno</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formaCaptura">            
+                                <div class="row mb-3">
+                                    <label for="matricula" class="col-sm-2 col-form-label">
+                                        Matricula:
+                                    </label>
+                                    <div class="col-sm-4">                                        
+                                        <input type="text" id="matricula" class="form-control"
+                                            placeholder="Escriba la matrícula" >
+                                    </div>
+                                </div> 
+                                <div class="row mb-3">
+                                    <label for="nombre" class="col-sm-2 col-form-label">
+                                        Nombre:
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="nombre" class="form-control"
+                                            placeholder="Escriba el nombre">
+                                    </div>
+                                </div> 
+                                <div class="row mb-3">
+                                    <label for="nombre" class="col-sm-2 col-form-label">
+                                        Calificacion:
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <input type="number" id="calificacion" class="form-control"
+                                            placeholder="Escriba la calificación">
+                                    </div>
+                                </div> 
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button onclick="agregarAlumno(); return false;" type="button" class="btn btn-primary">Agregar Alumno</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              
+            
+        </div>
+
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/alumnos.js"></script>
+        <script>
+            var alumnos = [];            
+            $(document).ready(function() {                
+                descargarDatos();
+                
+            });                         
+        </script>
+    </body>
+</html>

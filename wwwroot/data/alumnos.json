@@ -1,0 +1,21 @@
+[{
+    "matricula": "123456",
+    "nombre": "Pancho Pantera",
+    "calificacion": 8.5,
+    "foto": "/images/123456.jpg"
+},{
+    "matricula": "56789",
+    "nombre": "Barbie",
+    "calificacion": 9.2,
+    "foto": "/images/56789.jpg"
+},{
+    "matricula": "23456",
+    "nombre": "El Conejo Quik",
+    "calificacion": 9.5,
+    "foto": "/images/23456.jpg"
+},{
+    "matricula": "34567",
+    "nombre": "Sam El Tucán",
+    "calificacion": 6.3,
+    "foto": "/images/34567.jpg"
+    }]
